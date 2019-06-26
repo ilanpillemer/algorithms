@@ -1,9 +1,7 @@
-//insertion sort, cormen p17
 //Insertion Sort works the way you can sort cards in two hands.
-//The right hand holds the unsorted Cards.
-//The left Hand starts empty.
-//You then take one card at a time from the Right Hand
-//And you insert it into the correct position in the cards in the Left Hand
+//The right hand holds the unsorted cards. The left hand starts empty.
+//Take one card at a time from the right hand, insert it into the correct
+//position in the cards in the left hand.
 package insertionsort
 
 //isort is an inplace implementaton of insertion sort derived from cormen p17 2nd edition
