@@ -1,20 +1,16 @@
 //insertion sort, cormen p17
-//Insertino Sort works the way you can sort cards in two hands.
-//The Right Hand holds the Unsorted Cards.
-//The Left Hand starts empty.
+//Insertion Sort works the way you can sort cards in two hands.
+//The right hand holds the unsorted Cards.
+//The left Hand starts empty.
 //You then take one card at a time from the Right Hand
 //And you insert it into the correct position in the cards in the Left Hand
 package insertionsort
 
-//isort is an inplace version of insertion sort
-//because its inplace the implied reference of a slice
-//can be changed in place to sort the array.
+//isort is an inplace implementaton of insertion sort derived from cormen p17 2nd edition
 func isort(cards []int) {
-	//the function below is a closure so it has access to cards
 	var insert = func(card int) {
-		value := cards[card]
-		prev := card - 1
-		//cards[0:card-1] are the left hand, and hence always already sorted
+		prev, value := card - 1, cards[card]
+		//cards[0:prev] are the left hand, and hence always already sorted
 		//go through the already sorted cards moving them one space to the right
 		//until the left hand card is smaller or equal to the current card
 		for ; prev > -1 && cards[prev] > value; prev-- { // sentinel is -1 as the first card is position 0.
