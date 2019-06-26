@@ -8,7 +8,7 @@ package insertionsort
 func isort(cards []int) {
 	var insert = func(card int) {
 		prev, value := card - 1, cards[card]
-		//cards[0:prev] are the left hand, and hence always already sorted
+		//cards[0:card] are the left hand, and hence always already sorted
 		//go through the already sorted cards moving them one space to the right
 		//until the left hand card is smaller or equal to the current card
 		for ; prev > -1 && cards[prev] > value; prev-- { // sentinel is -1 as the first card is position 0.
