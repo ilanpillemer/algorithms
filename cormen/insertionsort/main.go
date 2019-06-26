@@ -16,7 +16,7 @@ func isort(cards []int) {
 			//this right shift would therefore in the worst case happen (1 + 2 + 3 + 4 ... + n) times or n ( n + 1 ) / 2
 			cards[prev+1] = cards[prev] // the previous card was higher so it should be shifted right leaving a space
 		}
-		cards[prev+1] = value // all cards to left are smaller so put card in here
+		cards[prev+1] = value // all cards to left are smaller or equal so put card in here
 	}
 
 	// card is the "current card" being inserted into the hand
