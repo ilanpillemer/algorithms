@@ -12,7 +12,7 @@ func isort(cards []int) {
 		//go through the already sorted cards moving them one space to the right
 		//until the left hand card is smaller or equal to the current card
 		//in the worst case when the next card has to always go to the first position
-		//this will run (1 + 2 + 3 + 4 ... + n) times or n ( n + 1 ) / 2
+		//this will run in the worst case (1 + 2 + 3 + 4 ... + n) times or n ( n + 1 ) / 2
 		for ; prev > -1 && cards[prev] > value; prev-- { // sentinel is -1 as the first card is position 0.
 			cards[prev+1] = cards[prev] // the previous card was higher so it should be shifted right leaving a space
 		}
@@ -23,9 +23,9 @@ func isort(cards []int) {
 	// as the first card is already sorted as its only one card
 	// one can assume first card is in the left hand already and
 	// start process from card 1 (position 2)
-	// this loop will always therefore run n-1 times
+	// this loop will always therefore run approx. n times
 	for card:=1; card < len(cards); card++ {
-		insert(card) // worst case is n ( n +1 ) / 2
+		insert(card) // worst case is n ( n + 1 ) / 2
 	}
 	//so worst case running time is quadratic as its n * n (n + 1) / 2
 }
