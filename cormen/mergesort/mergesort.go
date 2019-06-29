@@ -79,10 +79,10 @@ func mergesort2(cards []int) {
 		nl, nr := mid-start, end-mid //counts of how many entries in two sub arrays
 
 		// create two separate piles of the two sorted sub arrays
-		L, R := make([]int, nl), make([]int, nr, nr+1)
+		L, R := make([]int, nl), make([]int, nr)
 		copy(L[0:nl], cards[start:mid])
 		copy(R[0:nr], cards[mid:end])
-		
+
 		l, r := 0, 0
 		for card := start; card < end; card++ { // this runs in linear time
 			switch {
