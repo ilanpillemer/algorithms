@@ -76,31 +76,30 @@ func mergesort2(cards []int) {
 	//mid is beginning for the right sub array
 	//end is end of the right sub array
 	var merge = func(start, mid, end int) {
-		n1, n2 := mid-start, end-mid //counts of how many entries in two sub arrays
+		nl, nr := mid-start, end-mid //counts of how many entries in two sub arrays
 
 		// create two separate piles of the two sorted sub arrays
-		L, R := make([]int, n1, n1+1), make([]int, n2, n2+1)
-		copy(L[0:n1], cards[start:mid])
-		copy(R[0:n2], cards[mid:end])
-
-
-		i, j := 0, 0
-		for k := start; k < end; k++ { // this runs in linear time
+		L, R := make([]int, nl), make([]int, nr, nr+1)
+		copy(L[0:nl], cards[start:mid])
+		copy(R[0:nr], cards[mid:end])
+		
+		l, r := 0, 0
+		for card := start; card < end; card++ { // this runs in linear time
 			switch {
-			case i-n1 == 0: // L is empty
-				copy(cards[k:end], R[j:])
+			case l-nl == 0: // L is empty
+				copy(cards[card:end], R[r:])
 				return
-			case j-n2 == 0: // R is empty
-				copy(cards[k:end], L[i:])
+			case r-nr == 0: // R is empty
+				copy(cards[card:end], L[l:])
 				return
 			default:
-				if L[i] <= R[j] {
-					cards[k] = L[i]
-					i++
+				if L[l] <= R[r] {
+					cards[card] = L[l]
+					l++
 					continue
 				}
-				cards[k] = R[j]
-				j++
+				cards[card] = R[r]
+				r++
 				continue
 			}
 		}
@@ -119,10 +118,8 @@ func mergesort2(cards []int) {
 			merge(start, mid, end)                             //merge the two sorted piles which takes linear time
 		}
 	}
-
 	//sort the entire pack
 	sort(0, len(cards))
-
 	//as sort gets called recursively lg (n) times and each of those calls, calls merge which takes (n) time
 	//mergesort runs in [n lg (n)] time or O(n lg n)
 }
