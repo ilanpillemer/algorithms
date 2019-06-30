@@ -34,12 +34,11 @@ func isort(cards []int) {
 //A[1..n], we recursively sort A[1..n-1] and then insert A[n] into the sorted array
 //A[1..n-1]
 func isortR (cards []int){
-
 	if len(cards) == 0 {
 		return
 	}
 
-	var insert = func(card int, cards []int) {
+	var insert = func(card int) {
 		prev, value := card - 1, cards[card]
 		//cards[:card] are the left hand, and hence always already sorted
 		//go through the already sorted cards moving them one space to the right
@@ -52,17 +51,16 @@ func isortR (cards []int){
 		cards[prev+1] = value // all cards to left are smaller or equal so put card in here
 	}
 
-	var sort func(int, []int)
-	sort = func (card int, cards []int)  {
+	var sort func(int)
+	sort = func(card int)  {
 		if card <= 1 { //if first card or second card (index 0 or 1) the pile is already sorted
-			insert (card, cards)
+			insert(card)
 			return
 		}
-		sort(card-1,cards[:len(cards)-1]) // we recursively sort A[1..n-1]
-		insert(card,cards) // insert A[n] into the sorted array A[1..n-1]
+		sort(card-1) // recursively sort A[1..card-1]
+		insert(card) // insert A[card] into the sorted array A[1..card-1]
 	}
-
-	sort(len(cards)-1,cards)
+	sort(len(cards)-1) // sort the whole pack.
 	//TODO: write a recurrence for the running time
 }
 

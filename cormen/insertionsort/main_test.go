@@ -31,7 +31,7 @@ func TestIsortR(t *testing.T) {
 		{[]int{5, 2, 4, 6, 1, 3, 3, 7, 8, 2, 6, 5, 3, 1, 6, 8, 9, 10, 54, 1, 5, 8}},
 		{[]int{5}},
 		{[]int{}},
-		//{[]int{5, 4, 2, 1, 4}},
+		{[]int{5, 4, 2, 1, 4}},
 	}
 	for _,test := range tests {
 		isortR(test.input)
