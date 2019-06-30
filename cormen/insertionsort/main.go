@@ -29,7 +29,7 @@ func isort(cards []int) {
 	//so worst case running time is quadratic as its approx n (n + 1) / 2
 }
 
-//isortR is an implementation of exercise 2.3-4 in Coremen, 2nd Edition, p37
+//isortR is an implementation of exercise 2.3-4 in Cormen, 2nd Edition, p37
 //Insertion can be expressed as a recursive problem as follows. In Order to sort
 //A[1..n], we recursively sort A[1..n-1] and then insert A[n] into the sorted array
 //A[1..n-1]
