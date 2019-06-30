@@ -43,7 +43,6 @@ func TestMergeSortLeftOvers(t *testing.T) {
 }
 
 func isSorted(input []int) bool {
-
 	for i := range input {
 		if i == 0 {
 			continue
@@ -52,6 +51,5 @@ func isSorted(input []int) bool {
 			return false
 		}
 	}
-
 	return true
 }

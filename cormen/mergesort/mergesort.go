@@ -10,7 +10,7 @@ const (
 	sentinel = math.MaxInt64
 )
 
-//mergesort is an implementation of mergesort algorithm in corment p29.32
+//mergesort is an implementation of mergesort algorithm in cormen p29..32
 func mergesort(cards []int) {
 	//merge combines two sorted sub arrays into a sorted array
 	//start is the start of the left sub array
