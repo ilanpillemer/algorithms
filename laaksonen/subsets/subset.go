@@ -1,8 +1,9 @@
 package subsets
 
+//this is based on laaksonen p16, 1st edition
 func subsets(n int, f func([]int)) {
 	var subset = make([]int, 0)
-	// this is a streaming algorithms for processing all the
+	// this is a streaming algorithm for processing all the
 	// subsets of set of n elements. The function expects
 	// an array subset to exist in its closure
 	var search func(int)
