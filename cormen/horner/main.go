@@ -1,16 +1,13 @@
 package main
 
-import "fmt"
-
 //index 0 is coeffecient for a0, index 1 is coeefficent for a1.. etc
 //given a polynomial in the form ... x^3*a3 + x^2*a2 + x*a1 + a0
+//for example 2x^3 - 6x^2 + 2x - 1
+//example := poly([]int{-1, 2, -6, 2})
 type poly []int
 
 func main() {
-	//for example 2x^3 - 6x^2 + 2x - 1
-	example := poly([]int{-1, 2, -6, 2})
-	fmt.Println(simple(3, example))
-	fmt.Println(horner(3, example))
+
 }
 
 func simple(x int, p poly) int {
@@ -25,7 +22,6 @@ func simple(x int, p poly) int {
 			z = z * x
 		}
 		y = y + z*p[i]
-
 	}
 	return y
 }
